@@ -31,3 +31,76 @@ body {
     text-wrap: balance;
   }
 }
+/* Layout.module.css */
+.backgroundImage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure the background is behind other content */
+  background-image: url('https://your-background-image-url.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3; /* Adjust opacity as needed */
+}
+
+.container {
+  position: relative; /* Ensure content scrolls above the background */
+  z-index: 1; /* Content should be above the background */
+  padding-top: 100px; /* Adjust padding to ensure content isn't covered by the fixed background */
+}
+.carousel-container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.carousel-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+}
+
+.custom-dot {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 40px 8px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid gold;
+  cursor: pointer;
+}
+
+.custom-dot:hover {
+  background: #e31837;
+}
+
+.custom-dot.active {
+  background: #ffb80e;
+}
+
+.custom-dots {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.react-multi-carousel-list {
+  position: relative;
+}
+
+.react-multi-carousel-track {
+  overflow: hidden;
+}
+
+.react-multiple-carousel__arrow {
+  display: none;
+}

@@ -1,9 +1,22 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Header from "./components/header"
+import Header from "./components/header";
 
-const inter = Poppins({weight:['100','200','300','400','500','600','700','800','900'], subsets: ["latin"] });
+const poppins = Poppins({
+  weight: [
+    "100",
+    "200",
+    "300",
+    "400",
+    "500",
+    "600",
+    "700",
+    "800",
+    "900"
+  ],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,13 +25,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <Header/>
-      <body className={inter.className}>{children}</body>
+      <head>
+        <link rel="stylesheet" href="/globals.css" />
+      </head>
+      <body className={poppins.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
