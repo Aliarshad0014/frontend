@@ -56,7 +56,7 @@ const CustomCarousel: React.FC = () => {
               </div>
             </div>
           </div>
-          <img className='w-full h-full' src='../static/images/carousel-1.png' alt=''/>
+          <img className='w-full h-full' src='./images/carousel-1.jpg' alt=''/>
         </div>
         <div className="relative carousel-item h-full text-white">
           <div className='absolute inset-0 w-full bg-transparent'>
@@ -71,7 +71,7 @@ const CustomCarousel: React.FC = () => {
               </div>
             </div>
           </div>
-          <img className='w-full h-full' src='../static/images/carousel-2.png' alt=''/>
+          <img className='w-full h-full' src='./images/carousel-2.jpg' alt=''/>
         </div>
         <div className="relative carousel-item h-full text-white">
           <div className='absolute inset-0 w-full bg-transparent'>
@@ -86,7 +86,7 @@ const CustomCarousel: React.FC = () => {
               </div>
             </div>
           </div>
-          <img className='w-full h-full' src='../static/images/carousel-3.png' alt=''/>
+          <img className='w-full h-full' src='./images/carousel-3.jpg' alt=''/>
         </div>
       </Carousel>
       <ul className="custom-dots"></ul>
