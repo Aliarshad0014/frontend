@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { RiCloseLine, RiMenu3Line } from "react-icons/ri";
 
-import logo from "../images/logo.png"; // Corrected the path from 'mages' to 'images'
+import logo from "../images/logo.png";
 
 const Header: React.FC = () => {
   const [navBar, setNavBar] = useState(false);
@@ -10,27 +10,30 @@ const Header: React.FC = () => {
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
+  // Toggle navbar visibility and animate state
   const onNavClick = () => {
     setNavBar((prevState) => !prevState);
-    setAnimate(!animate); // Toggle animate state
+    setAnimate(!animate);
   };
 
+  // Handle scroll event to show/hide header
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
     if (currentScrollY > lastScrollY) {
-      setShowHeader(false);
+      setShowHeader(false); // Scrolling down, hide header
     } else {
-      setShowHeader(true);
+      setShowHeader(true); // Scrolling up, show header
     }
     setLastScrollY(currentScrollY);
   };
 
+  // Add scroll event listener on component mount
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [lastScrollY]);
+  }, [lastScrollY]); // Update effect when lastScrollY changes
 
   return (
     <nav
@@ -44,7 +47,7 @@ const Header: React.FC = () => {
       <div className="flex items-center">
         {/* Logo */}
         <a href="#home">
-          {/* <img src={logo} alt="Logo" className="w-12 h-12 mr-2 cursor-pointer" />s */}
+          {/* <img src={logo} alt="Logo" className="w-12 h-12 mr-2 cursor-pointer" /> */}
         </a>
       </div>
       <div className="hidden lg:flex justify-center w-full space-x-8 font-light text-lg">
