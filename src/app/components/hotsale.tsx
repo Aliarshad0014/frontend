@@ -1,4 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+
+// Debounce utility function with TypeScript types
+function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
+  let timeout: NodeJS.Timeout;
+  return (...args: Parameters<T>) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), wait);
+  };
+}
 
 const itemsPerStack = [
   ['Item 1', 'Item 2', 'Item 3'],
@@ -9,8 +18,10 @@ const itemsPerStack = [
 export default function HotSale() {
   const [stackIndices, setStackIndices] = useState([0, 0, 0]);
 
-  const handleScroll = (event: React.WheelEvent<HTMLDivElement>, stackIndex: number) => {
+  // Handle scroll function wrapped with debounce
+  const handleScroll = useCallback(debounce((event: React.WheelEvent<HTMLDivElement>, stackIndex: number) => {
     event.preventDefault();
+    event.stopPropagation(); // Stop the event from propagating to the parent elements
     const newIndices = [...stackIndices];
     if (event.deltaY > 0) {
       newIndices[stackIndex] = (stackIndices[stackIndex] + 1) % itemsPerStack[stackIndex].length;
@@ -18,7 +29,7 @@ export default function HotSale() {
       newIndices[stackIndex] = (stackIndices[stackIndex] - 1 + itemsPerStack[stackIndex].length) % itemsPerStack[stackIndex].length;
     }
     setStackIndices(newIndices);
-  };
+  }, 100), [stackIndices]);
 
   return (
     <div className="bg-white relative min-h-screen w-screen flex items-center justify-center">
