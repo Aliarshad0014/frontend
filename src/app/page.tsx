@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { FaSearch } from "react-icons/fa";
@@ -8,6 +7,9 @@ import CustomCarousel from "./components/customcarousel";
 import VideoShorts from "./components/shorts";
 import CustommCarousel from "./components/newcarousel";
 import UserReviews from "./components/review";
+import SearchForm from "./components/searching";
+import UserProfile from "./pages/profile";
+// import FooterSection from "./components/footer"; // Uncomment when needed
 
 const images = [
   "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -18,6 +20,22 @@ const images = [
 export default function Home() {
   const [activeButton, setActiveButton] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [data, setData] = useState([]); // State to store fetched data
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://propertier-p2wwcx3okq-em.a.run.app/api/mob/v1/ComputerHomePage');
+        const result = await response.json();
+        console.log('Fetched data:', result); // Log the fetched data
+        setData(result.Data.properties); // Set the fetched data (assuming properties is the array to map)
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -65,13 +83,13 @@ export default function Home() {
           className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
           onClick={handlePrev}
         >
-          Prev
+          
         </button>
         <button
           className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
           onClick={handleNext}
         >
-          Next
+          
         </button>
       </div>
 
@@ -89,7 +107,7 @@ export default function Home() {
             <select className="w-full sm:w-auto px-4 py-2 border rounded-lg shadow-sm text-black focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base">
               <option value="city1">City</option>
             </select>
-            <button className="flex items-center justify-center w-14 h-14 bg-yellow-500 text-white rounded-full shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button className="flex items-center justify-center w-14 h-14 bg-custom-color text-white rounded-full shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
               <FaSearch />
             </button>
           </div>
@@ -98,7 +116,7 @@ export default function Home() {
               className={`px-3 md:px-4 py-2 rounded-full ${
                 activeButton === "allProperties"
                   ? "bg-black text-white"
-                  : "bg-yellow-500 text-black"
+                  : "bg-custom-color text-black"
               } text-xs md:text-sm lg:text-base`}
               onClick={() => handleButtonClick("allProperties")}
             >
@@ -129,11 +147,14 @@ export default function Home() {
       </div>
 
       <div className="absolute mt-40">
-        <HotSale />
+        <HotSale data={data} /> {/* Pass data to HotSale component */}
+        {/* You can pass other components similarly */}
         <CustomCarousel />
-        <VideoShorts/>
-        <CustommCarousel/>
-        <UserReviews/>
+        {/* <UserProfile/> */}
+        <VideoShorts />
+        <CustommCarousel />
+        <UserReviews />
+        <SearchForm />
       </div>
     </div>
   );

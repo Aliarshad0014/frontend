@@ -81,7 +81,7 @@ body {
 }
 
 .custom-dot:hover {
-  background: #e31837;
+  background: #ffb80e;
 }
 
 .custom-dot.active {
@@ -153,6 +153,7 @@ body {
 
 
 /* new */
+
 .App {
   text-align: center;
 }
@@ -219,4 +220,15 @@ div h3{
   }
 }
 
+.bg-custom-color{
+  background-color: #eaab0c;
+}
 
+/* short play */
+.video-element {
+  transition: transform 0.2s ease; /* Add a smooth transition */
+}
+
+.playing {
+  transform: scale(1.1); /* Scale up the video when it's playing */
+}

@@ -50,20 +50,20 @@ const UserReviews = () => {
   };
 
   return (
-    <div className="flex items-center justify-center w-screen h-screen bg-gray-100 p-6">
-      <div className="relative lg:w-screen lg:h-3/4 bg-none rounded-lg">
+    <div className="flex items-center justify-center w-screen h-screen bg-white p-6">
+      <div className="relative lg:w-2/3 lg:h-3/4 bg-none rounded-lg">
         {/* Main Review */}
         <div className="relative w-full h-full flex items-start justify-center text-center p-6 bg-yellow-50 rounded-lg shadow-md ">
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <img
               src={reviews[currentReview].avatar}
               alt={reviews[currentReview].name}
-              className="rounded-full h-24 w-24 border-4 border-white shadow-lg"
+              className="rounded-full h-24 w-24 border-4 border-yellow-50 shadow-lg"
             />
           </div>
           <div className="mt-24 max-w-full">
             <p className="text-gray-600 mt-2 max-w-sm mx-auto mb-10">{reviews[currentReview].name}</p>
-            <p className="text-gray-800 max-w-sm mx-auto">{reviews[currentReview].review}</p>
+            <p className="text-gray-800 max-w-sm mx-auto p-10">{reviews[currentReview].review}</p>
           </div>
         </div>
 

@@ -45,7 +45,7 @@ const CustommCarousel: React.FC = () => {
         renderButtonGroupOutside
       >
         <div className="relative carousel-item min-h-screen text-white">
-          <img className='w-full h-full' src='./images/carousel-1.jpg' alt=''/>
+          <img className='w-full h-full' src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt=''/>
           <div className='absolute top-0 right-0 bg-red-500 text-white px-4 py-2 m-2 rounded-lg z-10'>
             10% off
           </div>
@@ -61,7 +61,7 @@ const CustommCarousel: React.FC = () => {
           </div>
         </div>
         <div className="relative carousel-item h-full text-white">
-          <img className='w-full h-full' src='./images/carousel-2.jpg' alt=''/>
+          <img className='w-full h-full' src='https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt=''/>
           <div className='absolute top-0 right-0 bg-red-500 text-white px-4 py-2 m-2 rounded-lg z-10'>
             20% off
           </div>
@@ -77,7 +77,7 @@ const CustommCarousel: React.FC = () => {
           </div>
         </div>
         <div className="relative carousel-item h-full text-white">
-          <img className='w-full h-full' src='./images/carousel-3.jpg' alt=''/>
+          <img className='w-full h-full' src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt=''/>
           <div className='absolute top-0 right-0 bg-red-500 text-white px-4 py-2 m-2 rounded-lg z-10'>
             10% off
           </div>

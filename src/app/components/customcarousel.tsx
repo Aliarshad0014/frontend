@@ -17,6 +17,15 @@ class App extends Component {
       cssEase: "linear"
     };
 
+    const slides = [
+      { title: "Title 1", price: "$100", img: "https://images.unsplash.com/photo-1567093322503-341d262ad8f9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+      { title: "Title 2", price: "$200", img: "https://images.unsplash.com/photo-1567093322503-341d262ad8f9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+      { title: "Title 3", price: "$300", img: "https://images.unsplash.com/photo-1567093322503-341d262ad8f9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+      { title: "Title 4", price: "$400", img: "https://images.unsplash.com/photo-1567093322503-341d262ad8f9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+      { title: "Title 5", price: "$500", img: "https://images.unsplash.com/photo-1567093322503-341d262ad8f9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+      { title: "Title 6", price: "$600", img: "https://images.unsplash.com/photo-1567093322503-341d262ad8f9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
+    ];
+
     return (
       <div className="mainContainer w-screen bg-gray-100 p-4">
         <div className="flex justify-between items-center mb-4">
@@ -40,12 +49,17 @@ class App extends Component {
         </div>
         <h2 className="text-black font-bold text-xl mb-4">Market Rate Today</h2>
         <Slider {...settings}>
-          {[...Array(6)].map((_, index) => (
-            <div key={index} className="container">
+          {slides.map((slide, index) => (
+            <div key={index} className="container relative">
               <img
-                src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src={slide.img}
                 alt={`Slide ${index + 1}`}
+                className="opacity-70"
               />
+              <div className="absolute top-10 left-24 p-4">
+                <h3 className="text-black font-bold">{slide.title}</h3>
+                <p className="text-black font-bold">{slide.price}</p>
+              </div>
             </div>
           ))}
         </Slider>
