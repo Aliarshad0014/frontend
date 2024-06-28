@@ -45,8 +45,8 @@ const CustommCarousel: React.FC = () => {
         renderButtonGroupOutside
       >
         <div className="relative carousel-item min-h-screen text-white">
-          <img className='w-full h-full' src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt=''/>
-          <div className='absolute top-0 right-0 bg-red-500 text-white px-4 py-2 m-2 rounded-lg z-10'>
+          <img className='w-full h-full' src='https://images.unsplash.com/photo-1592595896551-12b371d546d5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHx8MA%3D%3D' alt=''/>
+          <div className='absolute top-10 right-10 bg-red-500 text-center text-white px-4 py-2 m-2 w-1/12 rounded-md z-10'>
             10% off
           </div>
           <div className='absolute inset-0 w-full flex justify-center items-center'>
@@ -61,8 +61,8 @@ const CustommCarousel: React.FC = () => {
           </div>
         </div>
         <div className="relative carousel-item h-full text-white">
-          <img className='w-full h-full' src='https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt=''/>
-          <div className='absolute top-0 right-0 bg-red-500 text-white px-4 py-2 m-2 rounded-lg z-10'>
+          <img className='w-full h-full' src='https://images.unsplash.com/photo-1592595896551-12b371d546d5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHx8MA%3D%3D' alt=''/>
+          <div className='absolute top-10 right-10 w-1/12 text-center bg-red-500 text-white px-4 py-2 m-2 rounded-lg z-10'>
             20% off
           </div>
           <div className='absolute inset-0 w-full flex justify-center items-center'>
@@ -77,8 +77,8 @@ const CustommCarousel: React.FC = () => {
           </div>
         </div>
         <div className="relative carousel-item h-full text-white">
-          <img className='w-full h-full' src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt=''/>
-          <div className='absolute top-0 right-0 bg-red-500 text-white px-4 py-2 m-2 rounded-lg z-10'>
+          <img className='w-full h-full' src='https://images.unsplash.com/photo-1592595896551-12b371d546d5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHx8MA%3D%3D' alt=''/>
+          <div className='absolute top-10 right-10 bg-red-500 text-center text-white px-4 py-2 m-2 w-1/12 rounded-md z-10'>
             10% off
           </div>
           <div className='absolute inset-0 w-full flex justify-center items-center'>

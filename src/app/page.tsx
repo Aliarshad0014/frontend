@@ -9,6 +9,9 @@ import CustommCarousel from "./components/newcarousel";
 import UserReviews from "./components/review";
 import SearchForm from "./components/searching";
 import UserProfile from "./pages/profile";
+import { GrPrevious } from "react-icons/gr";
+import { GrNext } from "react-icons/gr";
+import ServicesCarousel from "./components/services";
 // import FooterSection from "./components/footer"; // Uncomment when needed
 
 const images = [
@@ -60,9 +63,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen relative overflow-x-hidden bg-white">
+    <div className="h-screen relative overflow-x-hidden bg-white">
       {/* Background slider image */}
-      <div className="absolute inset-0 z-0 h-full w-full overflow-hidden">
+      <div className="absolute inset-0 z-0 h-[80vh] w-full overflow-hidden">
         {images.map((image, index) => (
           <div
             key={index}
@@ -80,78 +83,66 @@ export default function Home() {
           </div>
         ))}
         <button
-          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
+          className="absolute top-1/2 left-4 transform -translate-y-1/2  bg-opacity-50 text-white p-2 rounded-full z-10"
           onClick={handlePrev}
         >
-          
+          <GrPrevious size={30} color="#eaab0c"/>
         </button>
         <button
-          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 hover:scale-100 bg-opacity-50 text-white p-2 rounded-full z-10"
           onClick={handleNext}
         >
-          
+          <GrNext size={30} color="#eaab0c"/>
         </button>
       </div>
 
       {/* Content overlay */}
       <div className="relative z-40 flex flex-col items-center justify-center min-h-screen inset-y-48">
         {/* Search Box */}
-        <div className="absolute lg:bottom-16 bottom-5 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-50 backdrop-blur-sm p-8 rounded-lg shadow-lg w-5/6 md:w-2/3 lg:w-1/2 xl:w-1/2 flex flex-col justify-center items-center">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-center">
-            What are you looking for?
-          </h1>
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <select className="w-full sm:w-auto px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 text-black focus:ring-blue-500 text-sm sm:text-base">
-              <option value="country1">Country</option>
-            </select>
-            <select className="w-full sm:w-auto px-4 py-2 border rounded-lg shadow-sm text-black focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base">
-              <option value="city1">City</option>
-            </select>
-            <button className="flex items-center justify-center w-14 h-14 bg-custom-color text-white rounded-full shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <FaSearch />
-            </button>
-          </div>
-          <div className="flex items-center justify-center mt-4 space-x-4">
-            <button
-              className={`px-3 md:px-4 py-2 rounded-full ${
-                activeButton === "allProperties"
-                  ? "bg-black text-white"
-                  : "bg-custom-color text-black"
-              } text-xs md:text-sm lg:text-base`}
-              onClick={() => handleButtonClick("allProperties")}
-            >
-              All Properties
-            </button>
-            <button
-              className={`px-3 md:px-4 py-2 rounded-full ${
-                activeButton === "rental"
-                  ? "bg-black text-white"
-                  : "bg-yellow-500 text-black"
-              } text-xs md:text-sm lg:text-base`}
-              onClick={() => handleButtonClick("rental")}
-            >
-              Rental
-            </button>
-            <button
-              className={`px-3 md:px-4 py-2 rounded-full ${
-                activeButton === "sale"
-                  ? "bg-black text-white"
-                  : "bg-yellow-500 text-black"
-              } text-xs md:text-sm lg:text-base`}
-              onClick={() => handleButtonClick("sale")}
-            >
-              Sale
+        <div className="absolute lg:bottom-60 bottom-5 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-100 backdrop-blur-sm p-8 rounded-xl shadow-lg w-2/3 flex flex-col justify-center items-center h-1/4">
+          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 w-full">
+            <div className="flex flex-col items-start">
+              <h1 className="text-yellow-500  font-semibold mb-2">Property Type</h1>
+              <select className="w-60 bg-white  px-4 py-2 border border-t-0 border-x-0 border-gray-500  shadow-sm text-black text-sm sm:text-base">
+                <option value="allProperties">All Properties</option>
+                <option value="rental">Rental</option>
+                <option value="sale">Sale</option>
+              </select>
+            </div>
+            <div className="flex flex-col items-start">
+              <h1 className="text-yellow-500 font-semibold mb-2">Country</h1>
+              <select className="w-60 bg-white  px-4 py-2 border border-t-0 border-x-0 border-gray-500  shadow-sm text-black text-sm sm:text-base">
+                <option value="country">Pakistan</option>
+                <option value="country">China</option>
+                <option value="country">Europe</option>
+
+                {/* Add options for countries here */}
+              </select>
+            </div>
+            <div className="flex flex-col items-start">
+              <h1 className="text-yellow-500 font-semibold mb-2">City</h1>
+              <select className="w-60 bg-white px-4 py-2 border border-t-0 border-x-0 border-gray-500  shadow-sm text-black text-sm sm:text-base">
+                <option value="city">Islamabad</option>
+                <option value="city">Karachi</option>
+                <option value="city">Peshawar</option>
+
+                {/* Add options for cities here */}
+              </select>
+            </div>
+            <button className="flex items-center justify-center h-20 w-20 bg-custom-color text-white shadow-md rounded-full hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <FaSearch size={25}/>
             </button>
           </div>
         </div>
       </div>
 
-      <div className="absolute mt-40">
+      <div className="absolute">
         <HotSale data={data} /> {/* Pass data to HotSale component */}
         {/* You can pass other components similarly */}
         <CustomCarousel />
         {/* <UserProfile/> */}
         <VideoShorts />
+        <ServicesCarousel/>
         <CustommCarousel />
         <UserReviews />
         <SearchForm />

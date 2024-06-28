@@ -1,52 +1,30 @@
 import React, { useRef, useState, useEffect } from "react";
-import "../globals.css"; // Import CSS file for styling (see below)
-
+import "../globals.css"; // Import CSS file for styling
+import { GrPrevious } from "react-icons/gr";
+import { GrNext } from "react-icons/gr";
 const videos = [
-  "https://www.w3schools.com/html/mov_bbb.mp4",
-  "https://www.w3schools.com/html/movie.mp4",
-  "https://www.w3schools.com/html/mov_bbb.mp4",
-  "https://www.w3schools.com/html/movie.mp4",
-  "https://www.w3schools.com/html/movie.mp4",
-  "https://www.w3schools.com/html/movie.mp4",
-  "https://www.w3schools.com/html/movie.mp4",
+  "https://videos.pexels.com/video-files/4770380/4770380-hd_1920_1080_30fps.mp4",
+  "https://videos.pexels.com/video-files/3773486/3773486-hd_1920_1080_30fps.mp4",
+  "https://videos.pexels.com/video-files/4770380/4770380-hd_1920_1080_30fps.mp4",
+  "https://videos.pexels.com/video-files/4770380/4770380-hd_1920_1080_30fps.mp4",
+  "https://videos.pexels.com/video-files/3773486/3773486-hd_1920_1080_30fps.mp4",
+  "https://videos.pexels.com/video-files/4770380/4770380-hd_1920_1080_30fps.mp4", 
+  // "https://www.w3schools.com/html/mov_bbb.mp4",
+  // "https://www.w3schools.com/html/movie.mp4",
+  // "https://www.w3schools.com/html/mov_bbb.mp4",
+  // "https://www.w3schools.com/html/movie.mp4",
+  // "https://www.w3schools.com/html/movie.mp4",
+  // "https://www.w3schools.com/html/movie.mp4",
+  // "https://www.w3schools.com/html/movie.mp4",
 ];
 
 const VideoShorts = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [playingIndex, setPlayingIndex] = useState<number | null>(null); // Track which video is playing
+  const [playingIndex, setPlayingIndex] = useState<number>(1); // Default to the second video
   const videoRefs = useRef<(HTMLVideoElement | null)[]>(Array(videos.length).fill(null));
 
   useEffect(() => {
     videoRefs.current = videoRefs.current.slice(0, videos.length); // Initialize videoRefs array
   }, []);
-
-  const handleScroll = () => {
-    const container = containerRef.current;
-    if (container) {
-      const containerHeight = container.clientHeight;
-      const scrollPosition = container.scrollTop;
-      const newIndex = Math.floor(scrollPosition / containerHeight);
-
-      if (newIndex >= 0 && newIndex < videos.length && newIndex !== playingIndex) {
-        setPlayingIndex(newIndex);
-        container.scrollTop = newIndex * containerHeight; // Snap to the beginning of the next video
-      }
-    }
-  };
-
-  const handleClick = (index: number) => {
-    if (playingIndex === index) {
-      // If the clicked video is the current one playing, pause it
-      const video = videoRefs.current[index];
-      if (video && !video.paused) {
-        video.pause();
-      }
-      setPlayingIndex(null); // Set playingIndex to null to indicate no video is playing
-    } else {
-      // Otherwise, set the clicked video as the current one playing
-      setPlayingIndex(index);
-    }
-  };
 
   useEffect(() => {
     const handleVideoChange = () => {
@@ -65,17 +43,26 @@ const VideoShorts = () => {
     handleVideoChange();
   }, [playingIndex]);
 
+  const handlePrev = () => {
+    setPlayingIndex((prev) => (prev > 0 ? prev - 1 : videos.length - 1));
+  };
+
+  const handleNext = () => {
+    setPlayingIndex((prev) => (prev < videos.length - 1 ? prev + 1 : 0));
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen mb-40 bg-no-repeat bg-white">
+    <div className="flex flex-col items-center justify-center w-screen h-screen mb-40">
       <h1 className="text-4xl font-bold mt-16 mb-8 text-yellow-500">Short Videos</h1>
-      <div className="video-shorts-wrapper w-full h-full flex justify-center">
-        <div
-          className="video-shorts-container overflow-y-scroll h-screen max-h-screen-md bg-yellow-500"
-          ref={containerRef}
-          onScroll={handleScroll}
-        >
+      <div className="video-shorts-wrapper flex justify-center items-center w-full">
+        <button className="prev-button rounded-full" onClick={handlePrev}><GrPrevious size={30} color="#eaab0c"/></button>
+        <div className="video-shorts-container flex justify-center items-center space-x-4">
           {videos.map((video, index) => (
-            <div key={index} className="video-box flex-shrink-0 h-full w-auto">
+            <div
+              key={index}
+              className={`video-box ${index === playingIndex ? "focused" : ""}`}
+              style={{ display: index >= playingIndex - 1 && index <= playingIndex + 1 ? 'block' : 'none' }}
+            >
               <video
                 ref={(el) => {
                   if (el) {
@@ -83,12 +70,13 @@ const VideoShorts = () => {
                   }
                 }}
                 src={video}
-                onClick={() => handleClick(index)}
-                className={`mx-auto video-element ${index === playingIndex ? "playing" : ""}`}
+                className={`video-element ${index === playingIndex ? "playing" : ""}`}
+                style={{ transform: index === playingIndex ? 'scale(1.1)' : 'scale(0.9)' }}
               />
             </div>
           ))}
         </div>
+        <button className="next-button rounded-full" onClick={handleNext}><GrNext size={30} color="#eaab0c"/></button>
       </div>
     </div>
   );

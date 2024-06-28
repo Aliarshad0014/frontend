@@ -10,7 +10,7 @@ const SearchForm: React.FC = () => {
           <div className="flex flex-wrap justify-center">
             {[...Array(4)].map((_, index) => (
               <div key={index} className="w-1/2 px-2 mb-4">
-                <select className="w-full p-2 rounded-md bg-white text-black">
+                <select className="w-full p-2 border border-x-0 border-t-0 border-black bg-transparent text-white">
                   <option value="" className='text-bold text-white'>Select an option</option>
                   <option value="option1" className='text-bold text-white'>Option 1</option>
                   <option value="option2" className='text-bold text-white'>Option 2</option>
@@ -19,10 +19,10 @@ const SearchForm: React.FC = () => {
               </div>
             ))}
             <div className="w-full px-2 mb-4">
-              <input type="text" className="w-full p-2 border border-gray-300 rounded-md text-black placeholder-gray-500" placeholder="Enter your name" />
+              <input type="text" className="w-full p-2 border border-gray-500 border-x-0 border-t-0  text-black placeholder-gray-500" placeholder="Enter your name" />
             </div>
             <div className="w-full px-2 mb-4">
-              <input type="email" className="w-full p-2 border border-gray-300 rounded-md text-black placeholder-gray-500" placeholder="Enter your email" />
+              <input type="email" className="w-full p-2 border border-gray-500 border-x-0 border-t-0 text-black placeholder-gray-500" placeholder="Enter your email" />
             </div>
           </div>
           <div className="flex justify-center">

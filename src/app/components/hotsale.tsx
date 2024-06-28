@@ -45,7 +45,7 @@ const HotSale: React.FC<HotSaleProps> = ({ data }) => {
   };
 
   return (
-    <div className="bg-white relative min-h-screen w-screen flex items-center justify-center">
+    <div className="bg-gray-100 relative min-h-screen w-screen flex items-center justify-center mb-40">
       <div className="flex flex-col items-center">
         <div className="p-8 text-center">
           <h2 className="text-3xl font-bold mb-8 text-yellow-400">Blazing Deals!</h2>
