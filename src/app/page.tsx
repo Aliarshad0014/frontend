@@ -129,19 +129,19 @@ export default function Home() {
                 {/* Add options for cities here */}
               </select>
             </div>
-            <button className="flex items-center justify-center h-20 w-20 bg-custom-color text-white shadow-md rounded-full hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <FaSearch size={25}/>
+            <button className="flex items-center justify-center h-16 w-16 bg-custom-color text-white shadow-md rounded-full hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <FaSearch size={20}/>
             </button>
           </div>
         </div>
       </div>
 
       <div className="absolute">
-        <HotSale data={data} /> {/* Pass data to HotSale component */}
+        <HotSale data={data}/> {/* Pass data to HotSale component */}
         {/* You can pass other components similarly */}
         <CustomCarousel />
         {/* <UserProfile/> */}
-        <VideoShorts />
+        <VideoShorts data={data}/>
         <ServicesCarousel/>
         <CustommCarousel />
         <UserReviews />

@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import { RiCloseLine, RiMenu3Line, RiAccountCircleFill } from "react-icons/ri";
-import { RiAccountBoxFill } from "react-icons/ri";
 import logo from "../images/logo.png";
 
 const Header: React.FC = () => {
@@ -39,11 +38,10 @@ const Header: React.FC = () => {
   return (
     <nav
       style={{
-        background: `linear-gradient(to bottom, rgba(30, 30, 30, 0.0), rgba(18, 18, 18, 0.0))`,
         transform: showHeader ? "translateY(0)" : "translateY(-100%)",
         transition: "transform 0.3s ease-in-out",
       }}
-      className="absolute top-0 left-0 right-0 flex items-center justify-between text-white px-4 py-5 lg:space-x-6 shadow-teal-500 h-20 z-10"
+      className="absolute top-0 left-0 right-0 flex items-center justify-between text-black px-4 py-5 lg:space-x-6 shadow-teal-500 h-20 z-50 bg-white bg-opacity-70 backdrop-blur-sm "
     >
       <div className="flex items-center">
         {/* Logo */}
@@ -53,21 +51,21 @@ const Header: React.FC = () => {
       </div>
       <div className="hidden lg:flex justify-center w-full space-x-8 font-light text-lg">
         {/* Centered navigation buttons */}
-        <a href="#about" className="hover:text-yellow-500 font-bold h-9 rounded-md ease-in-out duration-500 transition-all text-black flex items-center">
+        <a href="#about" className="hover:text-black text-yellow-500 font-bold h-9 rounded-md ease-in-out duration-500 transition-all flex items-center">
           PROPERTIES
         </a>
-        <a href="#services" className="hover:text-yellow-500 h-9 font-bold rounded-md ease-in-out duration-500 transition-all text-black flex items-center">
+        <a href="#services" className="hover:text-black text-yellow-500 h-9 font-bold rounded-md ease-in-out duration-500 transition-all flex items-center">
           SERVICES
         </a>
-        <a href="#projects" className="hover:text-yellow-500 h-9 font-bold rounded-md ease-in-out duration-500 transition-all text-black flex items-center">
+        <a href="#projects" className="hover:text-black text-yellow-500 h-9 font-bold rounded-md ease-in-out duration-500 transition-all flex items-center">
           CORPORATE
         </a>
-        <a href="#contact" className="hover:text-yellow-500 h-9 font-bold rounded-md ease-in-out duration-500 transition-all text-black flex items-center">
+        <a href="#contact" className="hover:text-black text-yellow-500 h-9 font-bold rounded-md ease-in-out duration-500 transition-all flex items-center">
           MATERIAL
         </a>
         <div className="relative inline-block text-left flex items-center">
           <div className="group">
-            <button type="button" className="inline-flex justify-center w-full rounded-md h-9 ease-in-out duration-500 font-bold text-black hover:text-yellow-500 flex items-center">
+            <button type="button" className="inline-flex justify-center w-full rounded-md h-9 ease-in-out duration-500 font-bold text-yellow-500 hover:text-black flex items-center">
               OTHERS
               <svg className="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fillRule="evenodd" d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -91,13 +89,13 @@ const Header: React.FC = () => {
         >
           {navBar ? <RiCloseLine size={30} /> : <RiMenu3Line size={30} />}
         </div>
-        <a href="#login" className="text-white flex items-center">
+        <a href="#login" className="text-black flex items-center">
           <RiAccountCircleFill size={30} />
         </a>
       </div>
       {navBar && (
         <ul
-          className={`h-[100vh] text-teal-50 phone-view lg:hidden flex flex-col justify-center items-center absolute top-0 left-0 w-full bggradient ${
+          className={`h-[100vh] text-black phone-view lg:hidden flex flex-col justify-center items-center absolute top-0 left-0 w-full bg-white bg-opacity-70 backdrop-blur-lg ${
             animate ? "slideIn" : ""
           }`}
         >

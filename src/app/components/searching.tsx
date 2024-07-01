@@ -2,7 +2,7 @@ import React from 'react';
 
 const SearchForm: React.FC = () => {
   return (
-    <div className="relative flex justify-center items-center p-8 rounded-lg w-screen max-h-1/2 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
+    <div className="relative flex justify-center items-center p-8 rounded-lg w-screen max-h-1/2 bg-cover bg-center" style={{ backgroundImage: "url('https://img.freepik.com/free-vector/orange-question-mark-background-with-text-space_1017-27394.jpg?t=st=1719640939~exp=1719644539~hmac=db1d9ee2fe0693bb6ffe6b171990a8373347d884f24a17f005e4d54bc358040d&w=740')" }}>
       <div className="absolute inset-0 bg-opacity-80 backdrop-blur-sm"></div>
       <div className="relative z-10 w-full max-w-xl">
         <h1 className="text-3xl font-bold mb-4 text-black text-center">Enter what you are searching for</h1>

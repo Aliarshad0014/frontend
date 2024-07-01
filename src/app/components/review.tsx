@@ -50,7 +50,8 @@ const UserReviews = () => {
   };
 
   return (
-    <div className="flex items-center justify-center w-screen h-screen bg-white p-6">
+    <div className="flex flex-col items-center justify-center w-screen min-h-screen bg-gray-100 p-6 mb-10">
+      <h1 className="text-3xl font-bold mb-20 text-gray-800">Hear from our clients</h1>
       <div className="relative lg:w-2/3 lg:h-3/4 bg-none rounded-lg">
         {/* Main Review */}
         <div className="relative w-full h-full flex items-start justify-center text-center p-6 bg-yellow-50 rounded-lg shadow-md ">
@@ -97,13 +98,13 @@ const UserReviews = () => {
             className="hidden w-1/3 h-full lg:flex items-center justify-center bg-white cursor-pointer transition-transform transform hover:scale-105 rounded-lg shadow-md"
             onClick={() => handleSwipe("right")}
           >
-            <div className="text-center p-4"> {/* Added padding */}
+            <div className="text-center p-4">
               <img
                 src={reviews[currentReview === 0 ? reviews.length - 1 : currentReview - 1].avatar}
                 alt={reviews[currentReview === 0 ? reviews.length - 1 : currentReview - 1].name}
                 className="rounded-full h-24 w-24 mx-auto mb-2" 
               />
-              <p className="text-gray-600 text-lg">{reviews[currentReview === 0 ? reviews.length - 1 : currentReview - 1].name}</p> {/* Increased text size */}
+              <p className="text-gray-600 text-lg">{reviews[currentReview === 0 ? reviews.length - 1 : currentReview - 1].name}</p>
             </div>
           </div>
 
